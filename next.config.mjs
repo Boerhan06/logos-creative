@@ -1,8 +1,11 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  /* config options here */
-  cacheComponents: true,
-  partialPrefetching: true,
+  // Export as static site (generates /out folder)
+  output: 'export',
+  // Image handling: disable Next.js image optimization for static export
+  images: {
+    unoptimized: true,
+  },
   turbopack: {
     rules: {
       "*.css": {

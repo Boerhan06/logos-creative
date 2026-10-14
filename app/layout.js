@@ -8,27 +8,35 @@ const inter = Inter({
 });
 
 export const metadata = {
-  title: "Logos Creative — Precision Design Studio",
+  title: "Logos Creative — Your Support System",
   description:
-    "We craft iconic digital products, scalable brand design systems, and cinematic digital narratives for world-leading culinary and lifestyle enterprises.",
+    "Teman berpikir, tim eksekusi, dan support system untuk brand yang ingin terus berkembang. Mulai dari media sosial, produksi konten, sampai aktivasi brand.",
   keywords: [
-    "design studio",
-    "brand identity",
-    "UI/UX",
-    "culinary branding",
-    "luxury design",
-    "digital products",
+    "creative agency",
+    "your support system",
+    "logos creative",
+    "social media",
+    "creative production",
+    "branding creative direction",
+    "campaign brand activation",
+    "agensi kreatif",
   ],
+  icons: {
+    icon: "/images/logo-round.svg",
+    apple: "/images/logo-round.svg",
+  },
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${inter.variable} h-full`}>
+    <html lang="id" className={`${inter.variable} h-full`}>
       <head>
         <link
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
           rel="stylesheet"
         />
+        <link rel="icon" type="image/svg+xml" href="/images/logo-round.svg" />
+        <link rel="apple-touch-icon" href="/images/logo-round.svg" />
       </head>
       <body className="min-h-full flex flex-col font-[var(--font-inter)] antialiased">
         {children}
