@@ -45,7 +45,7 @@ const config = {
   password: process.env.FTP_PASSWORD || "",
   port: parseInt(process.env.FTP_PORT || "21", 10),
   localRoot: path.join(__dirname, "out"),
-  remoteRoot: process.env.FTP_REMOTE_ROOT || "/public_html/",
+  remoteRoot: process.env.FTP_REMOTE_ROOT || "/domains/logoscreative.id/public_html/",
   include: ["*", "**/*"],
   deleteRemote: true, // Menghapus file lama di remote agar bersih & up-to-date
   forcePasv: true,
