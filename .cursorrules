@@ -1,0 +1,15 @@
+# Cursor AI Rules - Logos Creative
+
+- Do NOT index or read `package-lock.json`, `.next/`, `out/`, `node_modules/`, or binary files in `public/images/`.
+- Use `package.json` for dependency information.
+- Primary theme color is Maroon `#5e0919`.
+- Component map:
+  - Header: `app/components/Header.js`
+  - Hero: `app/components/Hero.js`
+  - What We Do: `app/components/WhatWeDo.js`
+  - Clients: `app/components/OurClients.js`
+  - Portfolio: `app/components/Portfolio.js`
+  - Results: `app/components/Results.js`
+  - Contact Us: `app/components/ContactUs.js`
+  - WhatsApp: `app/utils/whatsapp.js`
+- Keep code edits minimal and precise. Avoid full-file rewrites.

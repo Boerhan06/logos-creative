@@ -1,0 +1,61 @@
+# ==============================================================================
+# AI IGNORE FILE (Universal for Antigravity, Cursor, Claude, Copilot, Windsurf)
+# ==============================================================================
+# Mengabaikan file-file besar, build artifacts, dan metadata agar AI tidak boros
+# token dan tidak membaca file berat yang tidak relevan.
+# ==============================================================================
+
+# 1. Dependency Tree & Lockfiles (Sangat berat, lockfile >240KB = ~60k tokens)
+node_modules/
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# 2. Build Outputs & Compilations
+.next/
+out/
+build/
+dist/
+.turbo/
+*.tsbuildinfo
+*.map
+
+# 3. Environment Variables & Rahasia
+.env
+.env.*
+!.env.example
+secrets/
+*.pem
+*.key
+
+# 4. Media & Asset Biner Besar (Gambar, Video, Font)
+# Biarkan AI hanya mengetahui path-nya lewat kode, jangan load isi binernya
+public/images/
+public/media/
+*.jpg
+*.jpeg
+*.png
+*.webp
+*.gif
+*.mp4
+*.webm
+*.ico
+*.woff
+*.woff2
+*.ttf
+*.eot
+
+# 5. Git & IDE Artifacts
+.git/
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# 6. Logs & Scratchpad
+*.log
+npm-debug.log*
+yarn-debug.log*
+scratch/
+tmp/
+temp/

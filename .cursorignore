@@ -1,0 +1,35 @@
+# ==============================================================================
+# CURSOR IGNORE FILE
+# ==============================================================================
+node_modules/
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+.next/
+out/
+build/
+dist/
+.turbo/
+*.tsbuildinfo
+*.map
+.env
+.env.*
+!.env.example
+public/images/
+public/media/
+*.jpg
+*.jpeg
+*.png
+*.webp
+*.gif
+*.mp4
+*.webm
+*.ico
+*.woff
+*.woff2
+.git/
+.vscode/
+.idea/
+*.log
+scratch/
+tmp/
