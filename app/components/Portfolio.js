@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { getWhatsAppUrl } from "../utils/whatsapp";
+import { smoothScroll } from "../utils/smoothScroll";
 
 const portfolioProjects = [
   {
@@ -9,6 +10,7 @@ const portfolioProjects = [
     brand: "Madame Arumantara",
     logo: "/images/clients/madame-arumantara.jpg",
     type: "Creative Production & Social Media",
+    hasVideo: true,
     summary:
       "Dari menu andalan sampai suasana restoran, setiap konten dirancang untuk memperkenalkan hal-hal yang membuat brand ini layak dikunjungi.",
     challenge:
@@ -77,6 +79,7 @@ const portfolioProjects = [
     brand: "Tomaple",
     logo: "/images/clients/client-tomaple.webp",
     type: "Branding Visuals & Social Media",
+    hasVideo: true,
     summary:
       "Membawa citra artisan donut dan kopi ke ranah gaya hidup harian yang hangat dan memanjakan lidah.",
     challenge:
@@ -119,7 +122,7 @@ export default function Portfolio() {
     >
       <div className="flex flex-col gap-space-md lg:gap-space-lg">
         {/* Header */}
-        <div className="max-w-3xl">
+        <div className="reveal reveal-fade-up max-w-3xl">
           <span className="text-label-md font-bold text-primary tracking-widest uppercase">
             PORTFOLIO
           </span>
@@ -137,15 +140,32 @@ export default function Portfolio() {
               melihat beberapa cara yang kami pilih.
             </p>
           </div>
+
+          {/* Quick link to Video Reels */}
+          <div className="mt-5">
+            <a
+              href="#videos"
+              onClick={(e) => smoothScroll(e, "#videos")}
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 hover:bg-primary/20 text-primary border border-primary/25 text-label-sm font-bold transition-all duration-200 group"
+            >
+              <span className="material-symbols-outlined text-[18px]">
+                videocam
+              </span>
+              <span>Lihat 5 Featured Video Reels Hasil Produksi</span>
+              <span className="material-symbols-outlined text-[16px] transition-transform group-hover:translate-x-0.5">
+                arrow_forward
+              </span>
+            </a>
+          </div>
         </div>
 
         {/* Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-space-md mt-4">
+        <div className="stagger-container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-space-md mt-4">
           {portfolioProjects.map((item) => (
             <article
               key={item.id}
               onClick={() => setSelectedProject(item)}
-              className="group rounded-[28px] bg-surface-container-lowest p-space-xs border border-outline-variant/30 hover:border-primary/40 shadow-xs hover:shadow-[0px_20px_40px_-6px_rgba(107,23,35,0.12)] transition-all duration-300 flex flex-col overflow-hidden cursor-pointer"
+              className="reveal reveal-fade-up group rounded-[28px] bg-surface-container-lowest p-space-xs border border-outline-variant/30 hover:border-primary/40 shadow-xs hover:shadow-[0px_20px_40px_-6px_rgba(107,23,35,0.12)] transition-all duration-300 flex flex-col overflow-hidden cursor-pointer"
             >
               {/* Image Container */}
               <div className="relative w-full h-60 sm:h-64 rounded-2xl overflow-hidden bg-surface-container">
@@ -170,6 +190,16 @@ export default function Portfolio() {
                     {item.brand}
                   </span>
                 </div>
+
+                {/* Video Reel Badge if Available */}
+                {item.hasVideo && (
+                  <div className="absolute top-3 right-3 flex items-center gap-1 px-2.5 py-1 rounded-full bg-primary/90 text-white backdrop-blur-md shadow-sm text-[11px] font-bold">
+                    <span className="material-symbols-outlined text-[14px]">
+                      videocam
+                    </span>
+                    <span>Reel Video</span>
+                  </div>
+                )}
 
                 {/* Project Type Badge */}
                 <div className="absolute bottom-3 left-3 right-3 text-white">
@@ -297,6 +327,39 @@ export default function Portfolio() {
                     {selectedProject.result}
                   </p>
                 </div>
+
+                {selectedProject.hasVideo && (
+                  <div className="p-4 rounded-2xl bg-primary/10 border border-primary/30 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                    <div className="flex items-center gap-2.5">
+                      <div className="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center shrink-0">
+                        <span className="material-symbols-outlined text-[18px]">
+                          videocam
+                        </span>
+                      </div>
+                      <div>
+                        <span className="text-body-sm font-bold text-on-surface block">
+                          Video Reel Asli Tersedia
+                        </span>
+                        <span className="text-[12px] text-on-surface-variant">
+                          Tonton format video vertical reel yang kami produksi untuk brand ini.
+                        </span>
+                      </div>
+                    </div>
+                    <a
+                      href="#videos"
+                      onClick={(e) => {
+                        setSelectedProject(null);
+                        smoothScroll(e, "#videos");
+                      }}
+                      className="px-4 py-2 rounded-full bg-primary text-white text-xs font-bold hover:bg-primary-container transition-colors inline-flex items-center justify-center gap-1.5 shadow-sm shrink-0"
+                    >
+                      <span>Tonton Reel</span>
+                      <span className="material-symbols-outlined text-[15px]">
+                        arrow_forward
+                      </span>
+                    </a>
+                  </div>
+                )}
               </div>
 
               {/* Modal CTA */}

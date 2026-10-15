@@ -105,7 +105,7 @@ export default function Hero() {
 
         {/* Team Photo (Responsive: Mobile di-hide via showTeam, di atas 110% zoom di-hide, di 110% ke bawah tetap tampil) */}
         {showTeam && (
-          <div className="absolute right-2 sm:right-4 md:right-6 lg:right-8 xl:right-12 bottom-0 pointer-events-none z-10 w-[280px] sm:w-[350px] md:w-[420px] lg:w-[480px] xl:w-[540px] 2xl:w-[600px] flex items-end justify-end">
+          <div className="reveal reveal-scale-up delay-350 absolute right-2 sm:right-4 md:right-6 lg:right-8 xl:right-12 bottom-0 pointer-events-none z-10 w-[280px] sm:w-[350px] md:w-[420px] lg:w-[480px] xl:w-[540px] 2xl:w-[600px] flex items-end justify-end">
             <img
               src="/images/team-hero.png"
               alt="Tim Kreatif Logos"
@@ -119,7 +119,7 @@ export default function Hero() {
         <div className="relative z-20 grid grid-cols-1 lg:grid-cols-12 gap-gutter items-center my-auto pt-space-lg pb-space-lg">
           <div className="lg:col-span-7 xl:col-span-7 flex flex-col gap-space-md">
             {/* Step Pill */}
-            <div className="flex items-center gap-3">
+            <div className="reveal reveal-fade-down delay-100 flex items-center gap-3">
               <span className="w-6 h-6 rounded-full bg-white/20 text-white flex items-center justify-center text-label-sm font-bold">
                 1
               </span>
@@ -129,17 +129,12 @@ export default function Hero() {
             </div>
 
             {/* Headline */}
-            <h1 className="text-display-xl-mobile lg:text-display-xl text-on-primary font-extrabold tracking-tight max-w-3xl leading-[1.08] uppercase">
+            <h1 className="reveal reveal-fade-up delay-200 text-display-xl-mobile lg:text-display-xl text-on-primary font-extrabold tracking-tight max-w-3xl leading-[1.08] uppercase">
               HELLO BRAND OWNER!
             </h1>
 
-            {/* Subheadline */}
-            <p className="text-title-lg sm:text-headline-sm font-semibold text-[#ffb3bc] tracking-tight -mt-1 sm:-mt-2">
-              Your Support System
-            </p>
-
             {/* Deskripsi */}
-            <div className="text-body-md lg:text-body-lg text-primary-fixed max-w-xl font-normal leading-relaxed flex flex-col gap-3">
+            <div className="reveal reveal-fade-up delay-300 text-body-md lg:text-body-lg text-primary-fixed max-w-xl font-normal leading-relaxed flex flex-col gap-3">
               <p>
                 Kami di sini untuk membantu brand menemukan ide, bikin sesuatu yang
                 menarik, dan mewujudkannya jadi karya nyata.
@@ -152,7 +147,7 @@ export default function Hero() {
             </div>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-space-xs sm:gap-space-md pt-space-sm">
+            <div className="reveal reveal-fade-up delay-400 flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-space-xs sm:gap-space-md pt-space-sm">
               <a
                 href={waUrl}
                 target="_blank"
@@ -179,7 +174,7 @@ export default function Hero() {
         </div>
 
         {/* Bottom Floating Stats & Info Card */}
-        <div className="relative z-20 flex flex-col sm:flex-row items-start sm:items-end justify-between gap-space-md pt-space-md">
+        <div className="reveal reveal-fade-up delay-500 relative z-20 flex flex-col sm:flex-row items-start sm:items-end justify-between gap-space-md pt-space-md">
           {/* Micro Stats */}
           <div className="flex items-center gap-6 text-on-primary">
             <div className="flex flex-col">

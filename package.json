@@ -7,7 +7,12 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "deploy": "npm run build && node deploy.js"
+    "deploy": "npm run build && node deploy.js",
+    "deploy:only": "node deploy.js",
+    "deploy:full": "npm run build && node deploy.js --full",
+    "deploy:dry": "node deploy.js --dry-run",
+    "push": "node sync-git.js",
+    "ship": "npm run build && node deploy.js && node sync-git.js"
   },
   "dependencies": {
     "next": "16.4.0",

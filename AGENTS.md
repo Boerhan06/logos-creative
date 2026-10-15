@@ -41,4 +41,6 @@ This repository is optimized for AI agent efficiency (Antigravity, Cursor, Claud
 * **Contact Us**: `app/components/ContactUs.js` (Interactive form + direct WA CTA).
 * **WhatsApp Utility**: `app/utils/whatsapp.js` (Number `+62 896-9988-1323` + message generator).
 * **Smooth Scroll**: `app/utils/smoothScroll.js` (Easing scroll to top or target).
-* **Deployment**: `node deploy.js` (Uploads `/out` to Hostinger FTP `/domains/logoscreative.id/public_html/`).
+* **Smart Deployment**: `node deploy.js` or `npm run deploy` (Smart incremental FTP deploy to Hostinger; only uploads added/modified files and skips unchanged videos/assets via `.deploy-manifest.json`).
+* **Fast Git Sync**: `node sync-git.js` or `npm run push` (Fast 1-click Git stage, commit, and push with concise status).
+* **Unified Ship**: `npm run ship` (Build + Smart FTP Deploy + Smart Git Push all-in-one).

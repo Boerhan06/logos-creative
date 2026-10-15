@@ -16,11 +16,11 @@ const clients = [
   { name: "A Hwa", logo: "/images/clients/a-hwa.jpg", category: "Culinary" },
   { name: "Fortuner Car Interior", logo: "/images/clients/fortuner-interior.jpg", category: "Automotive" },
   { name: "Infinitys", logo: "/images/clients/client-infinitys.png", category: "Apparel & Style" },
-  { name: "Shala", logo: "/images/clients/client-shala.jpeg", category: "Wellness & Spa" },
+  { name: "Shala", logo: "/images/clients/client-shala.jpeg", category: "Fashion & Beauty" },
   { name: "The Real Family", logo: "/images/clients/the-real-family.png", category: "Community & Lifestyle" },
   { name: "Victory Toys", logo: "/images/clients/victory-toys.png", category: "Kids & Toys" },
   { name: "Wanglai Kids", logo: "/images/clients/wanglai-kids.jpg", category: "Kids Fashion" },
-  { name: "Indomakmur", logo: "/images/clients/client-indomakmur.jpg", category: "Consumer Goods" },
+  { name: "Indomakmur", logo: "/images/clients/client-indomakmur.jpg", category: "Factory" },
 ];
 
 export default function OurClients() {
@@ -31,7 +31,7 @@ export default function OurClients() {
     >
       <div className="flex flex-col gap-space-md lg:gap-space-lg">
         {/* Header */}
-        <div className="max-w-3xl">
+        <div className="reveal reveal-fade-up max-w-3xl">
           <span className="text-label-md font-bold text-primary tracking-widest uppercase">
             OUR CLIENTS
           </span>
@@ -55,7 +55,7 @@ export default function OurClients() {
         </div>
 
         {/* Clean Logo Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 sm:gap-4 mt-4">
+        <div className="stagger-container grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 sm:gap-4 mt-4">
           {clients.map((client) => {
             const lower = client.name.toLowerCase();
             let circleBg = "bg-white border-black/[0.04] shadow-[0_3px_10px_rgba(0,0,0,0.08)]";
@@ -71,7 +71,7 @@ export default function OurClients() {
             return (
               <div
                 key={client.name}
-                className="group rounded-2xl bg-surface-container-lowest p-4 sm:p-5 border border-outline-variant/30 hover:border-primary/40 shadow-xs hover:shadow-md transition-all duration-300 flex flex-col items-center justify-center text-center gap-3"
+                className="reveal reveal-scale-up group rounded-2xl bg-surface-container-lowest p-4 sm:p-5 border border-outline-variant/30 hover:border-primary/40 shadow-xs hover:shadow-md transition-all duration-300 flex flex-col items-center justify-center text-center gap-3"
               >
                 <div
                   style={customStyle}

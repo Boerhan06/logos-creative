@@ -40,7 +40,7 @@ export default function WhatWeDo() {
       className="px-margin-mobile lg:px-margin py-space-lg lg:py-space-xl max-w-[1440px] mx-auto w-full"
     >
       {/* Section 1: Bukan Cuma Bikin Konten */}
-      <div className="rounded-[32px] bg-surface-container-low p-6 sm:p-8 lg:p-10 mb-8 lg:mb-12 border border-outline-variant/30 shadow-xs relative overflow-hidden">
+      <div className="reveal reveal-fade-up rounded-[32px] bg-surface-container-low p-6 sm:p-8 lg:p-10 mb-8 lg:mb-12 border border-outline-variant/30 shadow-xs relative overflow-hidden">
         <div className="max-w-3xl">
           <span className="text-xs font-bold text-primary tracking-widest uppercase block mb-2">
             Bukan Cuma Bikin Konten
@@ -76,7 +76,7 @@ export default function WhatWeDo() {
 
       {/* Section 2: What We Do */}
       <div className="flex flex-col gap-6">
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+        <div className="reveal reveal-fade-up flex flex-col sm:flex-row sm:items-end justify-between gap-4">
           <div>
             <span className="text-xs font-bold text-primary tracking-widest uppercase block">
               SERVICES
@@ -91,39 +91,48 @@ export default function WhatWeDo() {
           </p>
         </div>
 
-        {/* 4 Cards Grid - Refined with clean white container, rich maroon icon badges & subtle hover dynamics */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 mt-2">
+        {/* 4 Cards Grid - Styled in rich crimson red matching Hero */}
+        <div className="stagger-container grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 mt-2">
           {services.map((item) => (
             <div
               key={item.number}
-              className="group relative rounded-[28px] bg-white p-6 sm:p-8 border border-outline-variant/30 hover:border-primary/40 shadow-xs hover:shadow-[0px_16px_36px_-6px_rgba(94,9,25,0.12)] hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between"
+              className="reveal reveal-fade-up group relative rounded-[28px] bg-primary p-6 sm:p-8 border border-white/15 hover:border-white/35 shadow-[0px_16px_40px_-10px_rgba(94,9,25,0.35)] hover:shadow-[0px_22px_50px_-8px_rgba(94,9,25,0.5)] hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between overflow-hidden"
             >
-              <div>
+              {/* Hero-Style Ambient Glow in card */}
+              <div
+                className="absolute inset-0 pointer-events-none opacity-45 mix-blend-screen bg-cover bg-center"
+                style={{
+                  backgroundImage:
+                    "radial-gradient(circle at 80% 20%, #7a1523 0%, #5e0919 60%, #3b0d13 100%)",
+                }}
+              />
+
+              <div className="relative z-10">
                 <div className="flex items-center justify-between mb-5">
-                  <div className="w-12 h-12 rounded-2xl bg-[#5e0919]/10 text-primary flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-all duration-300 shadow-xs">
+                  <div className="w-12 h-12 rounded-2xl bg-white/15 text-white border border-white/20 flex items-center justify-center group-hover:bg-white group-hover:text-primary transition-all duration-300 shadow-sm">
                     <span className="material-symbols-outlined text-[26px]">
                       {item.icon}
                     </span>
                   </div>
-                  <span className="text-sm font-mono font-bold text-on-surface-variant/40 group-hover:text-primary transition-colors">
+                  <span className="text-sm font-mono font-bold text-white/50 group-hover:text-white transition-colors">
                     {item.number}
                   </span>
                 </div>
 
-                <h4 className="text-xl sm:text-2xl font-bold text-on-surface group-hover:text-primary transition-colors">
+                <h4 className="text-xl sm:text-2xl font-extrabold text-white group-hover:text-[#ffdada] transition-colors">
                   {item.title}
                 </h4>
 
-                <p className="mt-3 text-sm sm:text-base text-on-surface-variant leading-relaxed">
+                <p className="mt-3 text-sm sm:text-base text-white/85 leading-relaxed">
                   {item.desc}
                 </p>
               </div>
 
-              <div className="mt-6 pt-4 border-t border-outline-variant/20 flex flex-wrap gap-2">
+              <div className="relative z-10 mt-6 pt-4 border-t border-white/15 flex flex-wrap gap-2">
                 {item.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="px-3 py-1 rounded-full bg-surface-container text-on-surface-variant text-xs font-semibold group-hover:bg-[#5e0919]/5 group-hover:text-primary transition-colors"
+                    className="px-3 py-1 rounded-full bg-white/10 text-white/90 text-xs font-semibold border border-white/15 group-hover:bg-white/20 group-hover:text-white transition-colors"
                   >
                     {tag}
                   </span>
@@ -138,7 +147,7 @@ export default function WhatWeDo() {
           <a
             href="#portfolio"
             onClick={(e) => smoothScroll(e, "#portfolio")}
-            className="inline-flex items-center gap-2.5 px-8 py-3.5 rounded-full bg-primary hover:bg-[#7a0d22] text-white font-bold text-sm sm:text-base transition-all duration-300 group shadow-md hover:shadow-lg hover:-translate-y-0.5"
+            className="inline-flex items-center gap-2.5 px-8 py-3.5 rounded-full bg-primary hover:bg-[#7a0d22] text-white font-bold text-sm sm:text-base transition-all duration-300 group shadow-md hover:shadow-lg hover:-translate-y-0.5 border border-white/10"
           >
             <span>Lihat Apa yang Bisa Kita Kerjakan</span>
             <span className="material-symbols-outlined text-[18px] transition-transform group-hover:translate-y-0.5">

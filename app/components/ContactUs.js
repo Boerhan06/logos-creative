@@ -29,7 +29,7 @@ export default function ContactUs() {
         <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           
           {/* Left Block: Narrative & Headline */}
-          <div className="lg:col-span-7 flex flex-col gap-4 max-w-xl">
+          <div className="reveal reveal-slide-left lg:col-span-7 flex flex-col gap-4 max-w-xl">
             {/* Headline */}
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight uppercase leading-[1.1] text-white drop-shadow-sm">
               Jadi, Lagi Punya Ide Apa?
@@ -52,7 +52,7 @@ export default function ContactUs() {
           </div>
 
           {/* Right Block: Clean Floating Glass Card */}
-          <div className="lg:col-span-5 w-full flex justify-center lg:justify-end">
+          <div className="reveal reveal-slide-right delay-150 lg:col-span-5 w-full flex justify-center lg:justify-end">
             <div className="w-full max-w-md rounded-[26px] bg-[#140205]/70 backdrop-blur-2xl border border-white/15 p-6 sm:p-7 flex flex-col gap-5 shadow-[0px_20px_40px_rgba(0,0,0,0.45)]">
               
               {/* Account Header */}

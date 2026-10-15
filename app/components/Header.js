@@ -11,6 +11,7 @@ const navLinks = [
   { label: "About", path: "#about" },
   { label: "Our Clients", path: "#clients" },
   { label: "Portfolio", path: "#portfolio" },
+  { label: "Video Reels", path: "#videos" },
   { label: "Results", path: "#results" },
 ];
 

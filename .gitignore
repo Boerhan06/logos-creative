@@ -33,6 +33,7 @@
 secrets/
 credentials.json
 deploy-config.json
+.deploy-manifest.json
 *.passwd
 
 # Next.js Build Outputs & Caches

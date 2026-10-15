@@ -80,12 +80,20 @@ export default function Results() {
       id="results"
       className="px-margin-mobile lg:px-margin py-space-lg lg:py-space-xl max-w-[1440px] mx-auto w-full"
     >
-      <div className="rounded-[36px] bg-gradient-to-b from-[#220409] via-primary to-[#180306] p-space-md sm:p-space-lg lg:p-space-xl border border-primary/40 text-white shadow-[0px_24px_50px_-10px_rgba(94,9,25,0.4)] relative overflow-hidden">
-        {/* Background Ambient Glow */}
-        <div className="absolute top-0 right-1/4 w-96 h-96 bg-[#8a0f23]/30 rounded-full blur-[120px] pointer-events-none" />
+      <div className="rounded-[36px] bg-primary relative overflow-hidden p-space-md sm:p-space-lg lg:p-space-xl border border-white/15 text-white shadow-[0px_24px_50px_-10px_rgba(94,9,25,0.38)]">
+        {/* Ambient Background matching Hero */}
+        <div
+          className="absolute inset-0 pointer-events-none opacity-50 mix-blend-screen bg-cover bg-center"
+          style={{
+            backgroundImage:
+              "radial-gradient(circle at 75% 25%, #7a1523 0%, #5e0919 55%, #3b0d13 100%)",
+          }}
+        />
+        <div className="absolute -top-20 -right-20 w-[450px] h-[450px] bg-[#8a0f23]/35 rounded-full blur-[100px] pointer-events-none" />
+        <div className="absolute -bottom-20 -left-20 w-[400px] h-[400px] bg-[#6b1723]/30 rounded-full blur-[90px] pointer-events-none" />
 
         {/* Section Header */}
-        <div className="relative z-10 max-w-3xl">
+        <div className="reveal reveal-fade-up relative z-10 max-w-3xl">
 
           <h2 className="text-headline-md sm:text-headline-lg lg:text-display-sm font-extrabold tracking-tight text-white leading-tight">
             Angka Juga Punya Cerita.
@@ -107,16 +115,16 @@ export default function Results() {
         </div>
 
         {/* Performance Highlights Grid */}
-        <div className="relative z-10 grid grid-cols-1 md:grid-cols-3 gap-space-md mt-8 sm:mt-12">
+        <div className="stagger-container relative z-10 grid grid-cols-1 md:grid-cols-3 gap-space-md mt-8 sm:mt-12">
           {performanceHighlights.map((item) => (
             <div
               key={item.metric}
-              className="rounded-[28px] bg-white/5 border border-white/10 p-space-md sm:p-space-lg flex flex-col justify-between backdrop-blur-md hover:bg-white/[0.08] hover:border-white/25 transition-all duration-300 group shadow-sm"
+              className="reveal reveal-fade-up rounded-[28px] bg-white/10 border border-white/20 p-space-md sm:p-space-lg flex flex-col justify-between backdrop-blur-md hover:bg-white/15 hover:border-white/35 transition-all duration-300 group shadow-md"
             >
               <div>
                 {/* Metric & Badge */}
                 <div className="flex items-center justify-between mb-4">
-                  <span className="px-3 py-1 rounded-full bg-white/10 text-white text-[11px] font-bold uppercase tracking-wider border border-white/15">
+                  <span className="px-3 py-1 rounded-full bg-white/15 text-white text-[11px] font-bold uppercase tracking-wider border border-white/20">
                     {item.tag}
                   </span>
                   <span className="material-symbols-outlined text-white/40 group-hover:text-white transition-colors text-[24px]">
@@ -158,7 +166,7 @@ export default function Results() {
         </div>
 
         {/* ── BUKTI TANGKAPAN LAYAR ANALITIK / TESTIMONI PERFORMA ── */}
-        <div className="relative z-10 mt-10 sm:mt-14 pt-8 border-t border-white/10 flex flex-col gap-6">
+        <div className="reveal reveal-fade-up relative z-10 mt-10 sm:mt-14 pt-8 border-t border-white/10 flex flex-col gap-6">
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3">
             <div>
               <span className="text-xs uppercase font-bold text-[#ffdada] tracking-widest block">
@@ -174,13 +182,13 @@ export default function Results() {
           </div>
 
           {/* Collage of Analytics Testimonials */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
+          <div className="stagger-container grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
             {analyticsScreenshots.map((shot, idx) => (
               <div
                 key={idx}
-                className="group relative rounded-2xl overflow-hidden bg-black/40 border border-white/15 p-2 backdrop-blur-md shadow-lg hover:border-white/30 hover:-translate-y-1 transition-all duration-300 flex flex-col"
+                className="reveal reveal-scale-up group relative rounded-2xl overflow-hidden bg-black/20 hover:bg-black/30 border border-white/20 p-2 backdrop-blur-md shadow-md hover:border-white/40 hover:-translate-y-1 transition-all duration-300 flex flex-col"
               >
-                <div className="relative aspect-[9/16] w-full rounded-xl overflow-hidden bg-black/60 flex items-center justify-center">
+                <div className="relative aspect-[9/16] w-full rounded-xl overflow-hidden bg-black/50 flex items-center justify-center">
                   <img
                     src={shot.src}
                     alt={shot.caption}
@@ -206,7 +214,7 @@ export default function Results() {
         </div>
 
         {/* Closing Narrative & Transparency Notice */}
-        <div className="relative z-10 mt-10 sm:mt-12 p-space-md rounded-2xl bg-white/5 border border-white/10 flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div className="relative z-10 mt-10 sm:mt-12 p-space-md rounded-2xl bg-black/15 border border-white/20 flex flex-col sm:flex-row items-center justify-between gap-6 backdrop-blur-sm">
           <div className="max-w-2xl">
             <p className="text-body-md sm:text-body-lg text-white/90 leading-relaxed font-medium">
               Kami nggak bisa menjanjikan setiap konten akan viral. Tapi kami bisa
