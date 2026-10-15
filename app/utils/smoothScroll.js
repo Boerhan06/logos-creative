@@ -3,10 +3,12 @@ export const smoothScroll = (e, path) => {
   e.preventDefault();
 
   const target = document.querySelector(path);
-  if (!target) return;
+  if (!target && path !== '#home' && path !== '#hero') return;
 
   const headerOffset = 80; // Tinggi navbar
-  const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerOffset;
+  const targetPosition = (path === '#home' || path === '#hero') 
+    ? 0 
+    : Math.max(0, target.getBoundingClientRect().top + window.pageYOffset - headerOffset);
   const startPosition = window.pageYOffset;
   const distance = targetPosition - startPosition;
   const duration = 600; // Durasi scroll dalam milidetik (0.6 detik)

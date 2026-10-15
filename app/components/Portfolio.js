@@ -58,7 +58,7 @@ const portfolioProjects = [
   {
     id: "newlab",
     brand: "Newlab",
-    logo: "/images/clients/newlab.png",
+    logo: "/images/clients/client-newlab.png",
     type: "Creative Direction & Beauty Production",
     summary:
       "Menyajikan solusi perawatan tubuh dan kecantikan dalam narasi visual yang bersih, estetik, dan meyakinkan.",
@@ -75,7 +75,7 @@ const portfolioProjects = [
   {
     id: "tomaple",
     brand: "Tomaple",
-    logo: "/images/clients/tomaple.webp",
+    logo: "/images/clients/client-tomaple.webp",
     type: "Branding Visuals & Social Media",
     summary:
       "Membawa citra artisan donut dan kopi ke ranah gaya hidup harian yang hangat dan memanjakan lidah.",

@@ -1,6 +1,6 @@
 "use client";
 
-import { getWhatsAppUrl, WHATSAPP_NUMBER } from "../utils/whatsapp";
+import { getWhatsAppUrl } from "../utils/whatsapp";
 import Logo from "./Logo";
 
 export default function ContactUs() {
@@ -11,31 +11,32 @@ export default function ContactUs() {
       id="contact"
       className="px-margin-mobile lg:px-margin py-space-lg lg:py-space-xl max-w-[1440px] mx-auto w-full"
     >
-      <div className="relative rounded-[36px] bg-gradient-to-br from-[#1b060a] via-primary to-[#5a111c] text-white p-space-md sm:p-space-lg lg:p-space-xl shadow-[0px_24px_60px_-8px_rgba(107,23,35,0.4)] border border-primary/40 overflow-hidden">
-        {/* Background Ambient Radiance */}
+      {/* ── Main Container ── */}
+      <div className="relative rounded-[32px] sm:rounded-[40px] bg-gradient-to-br from-[#240409] via-primary to-[#180306] text-white p-6 sm:p-10 lg:p-12 shadow-[0px_25px_60px_-10px_rgba(94,9,25,0.45)] border border-primary/40 overflow-hidden">
+        
+        {/* Subtle Ambient Silk Wave */}
         <div
-          className="absolute inset-0 opacity-20 pointer-events-none mix-blend-screen"
+          className="absolute inset-0 opacity-30 pointer-events-none mix-blend-screen bg-cover bg-center"
           style={{
             backgroundImage:
-              "radial-gradient(circle at 80% 20%, rgba(255,255,255,0.3) 0%, transparent 50%), radial-gradient(circle at 20% 80%, rgba(138,7,9,0.5) 0%, transparent 60%)",
+              "radial-gradient(circle at 85% 25%, rgba(255,255,255,0.18) 0%, transparent 45%), radial-gradient(circle at 20% 85%, rgba(138,15,35,0.5) 0%, transparent 55%)",
           }}
         />
 
-        <div className="relative z-10 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-space-lg lg:gap-space-xl">
-          {/* Left Block */}
-          <div className="flex flex-col gap-4 max-w-xl">
-            <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 w-fit">
-              <span className="w-2 h-2 rounded-full bg-[#4ade80] animate-pulse" />
-              <span className="text-label-sm font-bold tracking-wider uppercase text-white/95">
-                YOUR SUPPORT SYSTEM IS READY
-              </span>
-            </div>
+        {/* Vector Background Accent */}
+        <div className="absolute -bottom-24 -left-24 w-72 h-72 bg-[#8a0f23]/30 rounded-full blur-[80px] pointer-events-none" />
 
-            <h2 className="text-headline-md sm:text-headline-lg lg:text-display-sm font-extrabold tracking-tight uppercase leading-tight text-white drop-shadow-sm">
+        <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+          
+          {/* Left Block: Narrative & Headline */}
+          <div className="lg:col-span-7 flex flex-col gap-4 max-w-xl">
+            {/* Headline */}
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight uppercase leading-[1.1] text-white drop-shadow-sm">
               Jadi, Lagi Punya Ide Apa?
             </h2>
 
-            <div className="text-body-md sm:text-body-lg text-white/85 leading-relaxed flex flex-col gap-3 font-normal">
+            {/* Subtext description */}
+            <div className="text-sm sm:text-base text-white/80 leading-relaxed flex flex-col gap-3 font-normal mt-1">
               <p>
                 Mau mengembangkan media sosial, bikin konten baru, menyiapkan
                 campaign, atau masih mencari tahu harus mulai dari mana?
@@ -44,23 +45,25 @@ export default function ContactUs() {
                 Ceritain saja dulu. Nggak harus sudah punya konsep matang untuk mulai
                 ngobrol.
               </p>
-              <p className="font-semibold text-white">
+              <p className="font-bold text-white text-base sm:text-lg text-[#ffdada]">
                 Yuk, ngobrol bareng Logos.
               </p>
             </div>
           </div>
 
-          {/* Right Action Block */}
-          <div className="flex flex-col gap-4 shrink-0 lg:min-w-[340px]">
-            <div className="p-6 rounded-3xl bg-black/25 backdrop-blur-md border border-white/15 flex flex-col gap-4">
-              <div className="flex items-center gap-3">
-                <Logo variant="badge" size={38} showText={false} />
-                <div>
-                  <span className="text-body-sm font-bold text-white block">
+          {/* Right Block: Clean Floating Glass Card */}
+          <div className="lg:col-span-5 w-full flex justify-center lg:justify-end">
+            <div className="w-full max-w-md rounded-[26px] bg-[#140205]/70 backdrop-blur-2xl border border-white/15 p-6 sm:p-7 flex flex-col gap-5 shadow-[0px_20px_40px_rgba(0,0,0,0.45)]">
+              
+              {/* Account Header */}
+              <div className="flex items-center gap-3.5 pb-3 border-b border-white/10">
+                <Logo variant="badge" size={44} showText={false} />
+                <div className="flex flex-col">
+                  <span className="text-base font-bold text-white leading-tight">
                     Logos Creative Support
                   </span>
-                  <span className="text-[12px] text-white/70 block">
-                    WhatsApp Bisnis Resmi
+                  <span className="text-xs text-white/60 font-medium mt-0.5">
+                    WhatsApp Bisnis Resmi • Siap Respon
                   </span>
                 </div>
               </div>
@@ -70,22 +73,24 @@ export default function ContactUs() {
                 href={waUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full py-4 px-6 rounded-full bg-white text-primary hover:bg-[#fff5f6] font-extrabold text-label-md sm:text-label-lg text-center flex items-center justify-center gap-3 shadow-lg hover:shadow-xl hover:-translate-y-0.5 active:translate-y-0 transition-all duration-300 group cursor-pointer"
+                className="w-full py-4 px-6 rounded-full bg-white text-primary hover:bg-[#fff0f2] font-black text-sm sm:text-base text-center flex items-center justify-center gap-3 shadow-[0px_8px_20px_rgba(0,0,0,0.25)] hover:shadow-[0px_12px_28px_rgba(0,0,0,0.35)] hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 group cursor-pointer"
               >
-                <span className="material-symbols-outlined text-[24px] text-[#25D366]">
+                <span className="material-symbols-outlined text-[24px] text-[#25D366] transition-transform group-hover:scale-110">
                   chat
                 </span>
                 <span>Chat with Logos Creative</span>
               </a>
 
-              <div className="flex items-center justify-center gap-2 text-[12px] text-white/70 text-center">
-                <span className="material-symbols-outlined text-[15px] text-[#4ade80]">
+              {/* Trust Badge */}
+              <div className="flex items-center justify-center gap-2 text-xs text-white/70 text-center">
+                <span className="material-symbols-outlined text-[16px] text-[#4ade80]">
                   verified
                 </span>
                 <span>Pesan otomatis siap terhubung langsung</span>
               </div>
             </div>
           </div>
+
         </div>
       </div>
     </section>

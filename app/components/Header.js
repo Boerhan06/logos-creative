@@ -7,7 +7,7 @@ import { smoothScroll } from "../utils/smoothScroll";
 import { getWhatsAppUrl } from "../utils/whatsapp";
 
 const navLinks = [
-  { label: "Home", path: "#home" },
+  { label: "Home", path: "#hero" },
   { label: "About", path: "#about" },
   { label: "Our Clients", path: "#clients" },
   { label: "Portfolio", path: "#portfolio" },
@@ -47,7 +47,7 @@ export default function Header() {
             onClick={(e) => {
               if (window.location.pathname === "/") {
                 e.preventDefault();
-                window.scrollTo({ top: 0, behavior: "smooth" });
+                smoothScroll(e, "#hero");
               }
             }}
             className="flex items-center group cursor-pointer"
@@ -55,16 +55,17 @@ export default function Header() {
             <Logo variant="badge" size={40} showText={true} />
           </Link>
 
-          {/* Desktop Nav */}
+          {/* Desktop Nav with Loading Line Hover Effect */}
           <nav className="hidden lg:flex items-center gap-space-lg">
             {navLinks.map((link) => (
               <a
                 key={link.label}
                 href={link.path}
                 onClick={(e) => handleNavClick(e, link.path)}
-                className="text-body-sm font-semibold text-on-surface-variant hover:text-primary transition-colors cursor-pointer"
+                className="relative py-2 px-1 text-body-sm font-semibold text-on-surface-variant hover:text-primary transition-colors cursor-pointer group flex flex-col items-center"
               >
-                {link.label}
+                <span>{link.label}</span>
+                <span className="nav-loading-bar" />
               </a>
             ))}
           </nav>

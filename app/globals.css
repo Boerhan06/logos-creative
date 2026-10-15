@@ -2,7 +2,7 @@
 
 @theme inline {
   /* ── Color Palette (Material Design 3 — Crimson Luxury) ── */
-  --color-primary: #4d0010;
+  --color-primary: #5e0919;
   --color-primary-container: #6b1723;
   --color-primary-fixed: #ffdada;
   --color-primary-fixed-dim: #ffb3b5;
@@ -323,6 +323,36 @@ body {
   background-size: 200% 200%;
   animation: gradient-shift 8s ease infinite;
 }
+
+/* ── Nav Hover Loading Line Effect ── */
+@keyframes nav-loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+.nav-loading-bar {
+  position: absolute;
+  bottom: 2px;
+  left: 0;
+  width: 0%;
+  height: 2.5px;
+  border-radius: 9999px;
+  background: linear-gradient(90deg, #5e0919 0%, #ad2f3a 25%, #ff8090 50%, #ad2f3a 75%, #5e0919 100%);
+  background-size: 200% 100%;
+  box-shadow: 0 1px 8px rgba(173, 47, 58, 0.4);
+  transition: width 0.32s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+}
+
+.group:hover .nav-loading-bar {
+  width: 100%;
+  animation: nav-loading 1.2s linear infinite;
+}
+
 
 /* ── Safe Area (Mobile PWA) ── */
 .pb-safe {

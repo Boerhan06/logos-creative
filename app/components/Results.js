@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { getWhatsAppUrl } from "../utils/whatsapp";
 
 const performanceHighlights = [
@@ -38,6 +39,39 @@ const performanceHighlights = [
   },
 ];
 
+const analyticsScreenshots = [
+  {
+    src: "/images/results/analytics-stat-5.jpg",
+    caption: "TikTok Studio Viral Campaign: 956.2K Views • 6,078 Jam Total Play Time • 1.8K New Followers",
+    highlight: "956.2K Views",
+    client: "F&B & Lifestyle Campaign",
+  },
+  {
+    src: "/images/results/analytics-stat-4.jpg",
+    caption: "High Impact Reach: 121.8K Views • 647 Jam Play Time • 1.2K New Followers",
+    highlight: "121.8K Views",
+    client: "Retail & Apparel Launch",
+  },
+  {
+    src: "/images/results/analytics-stat-3.jpg",
+    caption: "Consistent Performance: 32.8K Views • 269 Jam Play Time • 28.0s Avg Watch Time",
+    highlight: "High Retention",
+    client: "Culinary & Dining Project",
+  },
+  {
+    src: "/images/results/analytics-stat-2.jpg",
+    caption: "Targeted Audience Growth: 22K Views • 57 Jam Play Time • 25.99% Full Watch Rate",
+    highlight: "22K Views",
+    client: "Brand Awareness Activation",
+  },
+  {
+    src: "/images/results/analytics-stat-1.jpg",
+    caption: "Stable Organic Reach: 12.9K Views • 26 Jam Play Time • 28.86% Watched Full",
+    highlight: "Organic Reach",
+    client: "Beauty & Personal Care",
+  },
+];
+
 export default function Results() {
   const waUrl = getWhatsAppUrl();
 
@@ -46,16 +80,12 @@ export default function Results() {
       id="results"
       className="px-margin-mobile lg:px-margin py-space-lg lg:py-space-xl max-w-[1440px] mx-auto w-full"
     >
-      <div className="rounded-[36px] bg-gradient-to-b from-[#1b060a] via-[#150306] to-[#0d0103] p-space-md sm:p-space-lg lg:p-space-xl border border-primary/25 text-white shadow-[0px_24px_50px_-10px_rgba(107,23,35,0.3)] relative overflow-hidden">
+      <div className="rounded-[36px] bg-gradient-to-b from-[#220409] via-primary to-[#180306] p-space-md sm:p-space-lg lg:p-space-xl border border-primary/40 text-white shadow-[0px_24px_50px_-10px_rgba(94,9,25,0.4)] relative overflow-hidden">
         {/* Background Ambient Glow */}
-        <div className="absolute top-0 right-1/4 w-80 h-80 bg-primary/20 rounded-full blur-[100px] pointer-events-none" />
+        <div className="absolute top-0 right-1/4 w-96 h-96 bg-[#8a0f23]/30 rounded-full blur-[120px] pointer-events-none" />
 
         {/* Section Header */}
         <div className="relative z-10 max-w-3xl">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-[#ff8090] font-bold text-label-sm uppercase tracking-wider mb-4 border border-white/10">
-            <span className="material-symbols-outlined text-[16px]">monitoring</span>
-            <span>RESULTS & PERFORMANCE</span>
-          </div>
 
           <h2 className="text-headline-md sm:text-headline-lg lg:text-display-sm font-extrabold tracking-tight text-white leading-tight">
             Angka Juga Punya Cerita.
@@ -71,7 +101,7 @@ export default function Results() {
               percakapan, dan ada yang membantu brand mendapatkan perhatian baru.
             </p>
             <p className="font-semibold text-white">
-              Berikut beberapa hasil dari konten yang pernah kami kerjakan.
+              Berikut beberapa hasil nyata dari konten yang pernah kami kelola.
             </p>
           </div>
         </div>
@@ -81,21 +111,21 @@ export default function Results() {
           {performanceHighlights.map((item) => (
             <div
               key={item.metric}
-              className="rounded-[28px] bg-white/5 border border-white/10 p-space-md sm:p-space-lg flex flex-col justify-between backdrop-blur-md hover:bg-white/[0.08] hover:border-primary/40 transition-all duration-300 group shadow-sm"
+              className="rounded-[28px] bg-white/5 border border-white/10 p-space-md sm:p-space-lg flex flex-col justify-between backdrop-blur-md hover:bg-white/[0.08] hover:border-white/25 transition-all duration-300 group shadow-sm"
             >
               <div>
                 {/* Metric & Badge */}
                 <div className="flex items-center justify-between mb-4">
-                  <span className="px-3 py-1 rounded-full bg-primary/20 text-[#ffb3bc] text-[11px] font-bold uppercase tracking-wider border border-primary/30">
+                  <span className="px-3 py-1 rounded-full bg-white/10 text-white text-[11px] font-bold uppercase tracking-wider border border-white/15">
                     {item.tag}
                   </span>
-                  <span className="material-symbols-outlined text-white/40 group-hover:text-primary transition-colors text-[24px]">
+                  <span className="material-symbols-outlined text-white/40 group-hover:text-white transition-colors text-[24px]">
                     {item.icon}
                   </span>
                 </div>
 
                 <div className="flex items-baseline gap-2">
-                  <span className="text-[44px] sm:text-[52px] font-black tracking-tight text-white group-hover:text-[#ff8090] transition-colors leading-none">
+                  <span className="text-[44px] sm:text-[52px] font-black tracking-tight text-white group-hover:text-[#ffdada] transition-colors leading-none">
                     {item.metric}
                   </span>
                   <span className="text-label-sm font-bold text-white/60">
@@ -127,8 +157,56 @@ export default function Results() {
           ))}
         </div>
 
+        {/* ── BUKTI TANGKAPAN LAYAR ANALITIK / TESTIMONI PERFORMA ── */}
+        <div className="relative z-10 mt-10 sm:mt-14 pt-8 border-t border-white/10 flex flex-col gap-6">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3">
+            <div>
+              <span className="text-xs uppercase font-bold text-[#ffdada] tracking-widest block">
+                AUTHENTIC ANALYTICS SHOWCASE
+              </span>
+              <h3 className="text-title-lg sm:text-headline-sm font-extrabold text-white tracking-tight mt-1">
+                Data Performa Asli Akun Klien Kami
+              </h3>
+            </div>
+            <span className="text-xs text-white/60 font-medium">
+              *Tangkapan layar live dari dashboard TikTok Studio
+            </span>
+          </div>
+
+          {/* Collage of Analytics Testimonials */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
+            {analyticsScreenshots.map((shot, idx) => (
+              <div
+                key={idx}
+                className="group relative rounded-2xl overflow-hidden bg-black/40 border border-white/15 p-2 backdrop-blur-md shadow-lg hover:border-white/30 hover:-translate-y-1 transition-all duration-300 flex flex-col"
+              >
+                <div className="relative aspect-[9/16] w-full rounded-xl overflow-hidden bg-black/60 flex items-center justify-center">
+                  <img
+                    src={shot.src}
+                    alt={shot.caption}
+                    className="w-full h-full object-contain object-top group-hover:scale-102 transition-transform duration-500"
+                    loading="lazy"
+                  />
+                  <div className="absolute top-2.5 left-2.5 px-2.5 py-1 rounded-full bg-black/75 backdrop-blur-md text-[11px] font-bold text-white border border-white/20">
+                    {shot.highlight}
+                  </div>
+                </div>
+
+                <div className="p-2.5 flex flex-col gap-1">
+                  <span className="text-xs font-bold text-white line-clamp-1">
+                    {shot.client}
+                  </span>
+                  <p className="text-[11px] text-white/70 line-clamp-2 leading-relaxed">
+                    {shot.caption}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
         {/* Closing Narrative & Transparency Notice */}
-        <div className="relative z-10 mt-8 sm:mt-12 p-space-md rounded-2xl bg-white/5 border border-white/10 flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div className="relative z-10 mt-10 sm:mt-12 p-space-md rounded-2xl bg-white/5 border border-white/10 flex flex-col sm:flex-row items-center justify-between gap-6">
           <div className="max-w-2xl">
             <p className="text-body-md sm:text-body-lg text-white/90 leading-relaxed font-medium">
               Kami nggak bisa menjanjikan setiap konten akan viral. Tapi kami bisa
@@ -145,7 +223,7 @@ export default function Results() {
             href={waUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="shrink-0 px-7 py-3 rounded-full bg-white text-[#180407] hover:bg-white/90 font-bold text-label-md transition-all shadow-md active:scale-95 flex items-center gap-2"
+            className="shrink-0 px-7 py-3 rounded-full bg-white text-primary hover:bg-[#fff0f2] font-bold text-label-md transition-all shadow-md active:scale-95 flex items-center gap-2"
           >
             <span>Diskusi Strategi Brand Kamu</span>
             <span className="material-symbols-outlined text-[18px]">

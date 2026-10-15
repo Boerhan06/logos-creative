@@ -1,9 +1,9 @@
 // Konfigurasi WhatsApp Resmi Logos Creative
 export const WHATSAPP_NUMBER =
-  process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "6285187884488";
+  process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "6289699881323";
 
 export const WHATSAPP_DEFAULT_MESSAGE =
-  "Halo, Logos Creative! Aku mau ngobrol tentang kebutuhan brand-ku dan kemungkinan kerja sama dengan tim Logos. Boleh minta informasi lebih lanjut tentang layanan kalian?";
+  "Halo Logos Creative! Saya tertarik untuk diskusi dan konsultasi mengenai kebutuhan brand saya. Punya ide seru yang ingin saya wujudkan bareng tim Logos. Boleh info lebih lanjut?";
 
 /**
  * Menghasilkan link WhatsApp lengkap dengan pesan otomatis resmi
