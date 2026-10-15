@@ -76,10 +76,10 @@ export default function Header() {
               href={waUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-primary hover:bg-primary-container text-white font-bold text-label-md shadow-sm hover:shadow-md transition-all duration-300 active:scale-95 group"
+              className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-primary-container hover:bg-primary text-on-primary font-bold text-label-md shadow-sm hover:shadow-md transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 group"
             >
               <span>Contact Us</span>
-              <span className="text-[13px] px-1.5 py-0.5 rounded-full bg-white/20 font-medium">
+              <span className="text-[12px] px-2 py-0.5 rounded-full bg-white/20 font-medium">
                 WhatsApp
               </span>
               <span className="material-symbols-outlined text-[18px] transition-transform group-hover:translate-x-0.5">
