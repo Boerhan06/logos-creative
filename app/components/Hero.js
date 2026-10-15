@@ -61,18 +61,28 @@ export default function Hero() {
     >
       <div id="home" className="absolute -top-24 pointer-events-none" />
       <div className="relative w-full rounded-[28px] lg:rounded-xl shadow-[0px_20px_50px_-10px_rgba(94,9,25,0.38)] overflow-hidden flex flex-col justify-between min-h-[600px] sm:min-h-[540px] lg:min-h-[600px] xl:min-h-[620px] p-space-md lg:p-space-xl bg-primary max-w-[1440px] mx-auto">
-        {/* Ambient Background */}
-        <div
-          className="absolute inset-0 pointer-events-none opacity-45 mix-blend-screen bg-cover bg-center"
-          style={{
-            backgroundImage:
-              "radial-gradient(circle at 75% 30%, #5e0919 0%, #3b0d13 55%, #27090d 100%)",
-          }}
-        />
+        {/* Ambient Video Background */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="auto"
+            className="w-full h-full object-cover object-center filter brightness-[0.72] contrast-[1.08]"
+          >
+            <source src="/Video/hero-bg.mp4" type="video/mp4" />
+            <source src="/Video/1015%20(1).mp4" type="video/mp4" />
+          </video>
+        </div>
+
+        {/* Ambient Color Gradient & Readability Scrims (Responsive for Mobile & Desktop) */}
+        <div className="absolute inset-0 pointer-events-none z-[1] bg-gradient-to-t from-[#27090d]/92 via-[#3b0d13]/65 to-[#27090d]/75 lg:bg-gradient-to-r lg:from-[#27090d]/95 lg:via-[#3b0d13]/80 lg:to-[#27090d]/25" />
+        <div className="absolute inset-0 pointer-events-none z-[1] bg-[#5e0919]/45 mix-blend-multiply" />
 
         {/* SVG Wave Overlay */}
         <svg
-          className="absolute top-0 right-0 w-[65%] h-full pointer-events-none opacity-25"
+          className="absolute top-0 right-0 w-[65%] h-full pointer-events-none opacity-20 z-[1]"
           fill="none"
           preserveAspectRatio="none"
           viewBox="0 0 800 600"
