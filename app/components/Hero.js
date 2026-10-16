@@ -69,16 +69,17 @@ export default function Hero() {
             muted
             playsInline
             preload="auto"
-            className="w-full h-full object-cover object-center filter brightness-[0.72] contrast-[1.08]"
+            className="w-full h-full object-cover filter brightness-[1.50] contrast-[1.05] saturate-[0.7]"
+            style={{ objectPosition: 'center 30%' }}
           >
             <source src="/Video/hero-bg.mp4" type="video/mp4" />
-            <source src="/Video/1015%20(1).mp4" type="video/mp4" />
+            <source src="/Video/1015%30(1).mp4" type="video/mp4" />
           </video>
         </div>
 
         {/* Ambient Color Gradient & Readability Scrims (Responsive for Mobile & Desktop) */}
-        <div className="absolute inset-0 pointer-events-none z-[1] bg-gradient-to-t from-[#27090d]/92 via-[#3b0d13]/65 to-[#27090d]/75 lg:bg-gradient-to-r lg:from-[#27090d]/95 lg:via-[#3b0d13]/80 lg:to-[#27090d]/25" />
-        <div className="absolute inset-0 pointer-events-none z-[1] bg-[#5e0919]/45 mix-blend-multiply" />
+        <div className="absolute inset-0 pointer-events-none z-[1] bg-gradient-to-t from-[#1a0a0e]/90 via-[#1f0c10]/50 to-[#1a0a0e]/60 lg:bg-gradient-to-r lg:from-[#1a0a0e]/92 lg:via-[#2a0f14]/65 lg:to-transparent" />
+        <div className="absolute inset-0 pointer-events-none z-[1] bg-[#2a0f14]/18 mix-blend-multiply" />
 
         {/* SVG Wave Overlay */}
         <svg
@@ -99,9 +100,9 @@ export default function Hero() {
               y1="0%"
               y2="100%"
             >
-              <stop offset="0%" stopColor="#6b1723" stopOpacity="0.7" />
-              <stop offset="50%" stopColor="#5e0919" stopOpacity="0.85" />
-              <stop offset="100%" stopColor="#27090d" stopOpacity="0.95" />
+              <stop offset="0%" stopColor="#3d1018" stopOpacity="0.5" />
+              <stop offset="50%" stopColor="#2a0f14" stopOpacity="0.65" />
+              <stop offset="100%" stopColor="#1a0a0e" stopOpacity="0.8" />
             </linearGradient>
           </defs>
         </svg>
