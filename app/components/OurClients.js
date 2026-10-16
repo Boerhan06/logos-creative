@@ -68,10 +68,13 @@ export default function OurClients() {
             {[...clients, ...clients].map((client, idx) => {
               const lower = client.name.toLowerCase();
               const isTomaple = lower.includes("tomaple");
+              const isAHwa = lower.includes("a hwa");
               let circleBg = "bg-white border-black/[0.04] shadow-[0_3px_10px_rgba(0,0,0,0.08)]";
               let customStyle = {};
 
-              if (lower.includes("newlab") || lower.includes("a hwa") || lower.includes("fortuner")) {
+              if (isAHwa) {
+                circleBg = "bg-black border-white/10 shadow-[0_4px_12px_rgba(0,0,0,0.3)]";
+              } else if (lower.includes("newlab") || lower.includes("fortuner")) {
                 circleBg = "bg-[#0d0d0f] border-white/10 shadow-[0_4px_12px_rgba(0,0,0,0.3)]";
               } else if (lower.includes("wanglai")) {
                 circleBg = "border-[#eedecf] shadow-[0_3px_10px_rgba(0,0,0,0.06)]";
@@ -88,12 +91,12 @@ export default function OurClients() {
                 >
                   <div
                     style={customStyle}
-                    className={`w-14 h-14 sm:w-16 sm:h-16 rounded-full overflow-hidden flex items-center justify-center border shrink-0 transition-transform duration-300 group-hover:scale-105 ${circleBg} ${isTomaple ? "p-1.5" : "p-2"}`}
+                    className={`w-14 h-14 sm:w-16 sm:h-16 rounded-full overflow-hidden flex items-center justify-center border shrink-0 transition-transform duration-300 group-hover:scale-105 ${circleBg} ${isTomaple ? "p-1.5" : isAHwa ? "p-0.5" : "p-2"}`}
                   >
                     <img
-                      src={`${client.logo}?v=4`}
+                      src={`${client.logo}?v=5`}
                       alt={`Logo ${client.name}`}
-                      className="w-full h-full object-contain"
+                      className={`w-full h-full object-contain ${isAHwa ? "scale-[1.14]" : ""}`}
                       loading="lazy"
                     />
                   </div>
