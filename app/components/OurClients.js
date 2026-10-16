@@ -54,48 +54,62 @@ export default function OurClients() {
           </div>
         </div>
 
-        {/* Clean Logo Grid */}
-        <div className="stagger-container grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 sm:gap-4 mt-4">
-          {clients.map((client) => {
-            const lower = client.name.toLowerCase();
-            let circleBg = "bg-white border-black/[0.04] shadow-[0_3px_10px_rgba(0,0,0,0.08)]";
-            let customStyle = {};
+        {/* Single Line Continuous Marquee (Right to Left) */}
+        <div className="relative w-full overflow-hidden py-3 group">
+          {/* Gradient Edge Masks for Elegant Fade In/Out */}
+          <div className="pointer-events-none absolute inset-y-0 left-0 w-12 sm:w-24 bg-gradient-to-r from-surface to-transparent z-10" />
+          <div className="pointer-events-none absolute inset-y-0 right-0 w-12 sm:w-24 bg-gradient-to-l from-surface to-transparent z-10" />
 
-            if (lower.includes("newlab") || lower.includes("a hwa") || lower.includes("fortuner")) {
-              circleBg = "bg-[#0d0d0f] border-white/10 shadow-[0_4px_12px_rgba(0,0,0,0.3)]";
-            } else if (lower.includes("wanglai")) {
-              circleBg = "border-[#eedecf] shadow-[0_3px_10px_rgba(0,0,0,0.06)]";
-              customStyle = { backgroundColor: "#fdf1e5" };
-            }
+          {/* Moving Track: Single Line, Infinite Loop, Smooth Right-to-Left */}
+          <div
+            className="flex w-max items-center gap-3 sm:gap-4 animate-marquee group-hover:[animation-play-state:paused]"
+            style={{ animationDuration: "42s", willChange: "transform" }}
+          >
+            {[...clients, ...clients].map((client, idx) => {
+              const lower = client.name.toLowerCase();
+              const isTomaple = lower.includes("tomaple");
+              let circleBg = "bg-white border-black/[0.04] shadow-[0_3px_10px_rgba(0,0,0,0.08)]";
+              let customStyle = {};
 
-            return (
-              <div
-                key={client.name}
-                className="reveal reveal-scale-up group rounded-2xl bg-surface-container-lowest p-4 sm:p-5 border border-outline-variant/30 hover:border-primary/40 shadow-xs hover:shadow-md transition-all duration-300 flex flex-col items-center justify-center text-center gap-3"
-              >
+              if (lower.includes("newlab") || lower.includes("a hwa") || lower.includes("fortuner")) {
+                circleBg = "bg-[#0d0d0f] border-white/10 shadow-[0_4px_12px_rgba(0,0,0,0.3)]";
+              } else if (lower.includes("wanglai")) {
+                circleBg = "border-[#eedecf] shadow-[0_3px_10px_rgba(0,0,0,0.06)]";
+                customStyle = { backgroundColor: "#fdf1e5" };
+              } else if (isTomaple) {
+                circleBg = "border-transparent shadow-[0_3px_10px_rgba(250,127,182,0.3)]";
+                customStyle = { backgroundColor: "#fa7fb6" };
+              }
+
+              return (
                 <div
-                  style={customStyle}
-                  className={`w-16 h-16 sm:w-20 sm:h-20 rounded-full p-2.5 flex items-center justify-center border transition-all duration-300 group-hover:scale-105 ${circleBg}`}
+                  key={`${client.name}-${idx}`}
+                  className="shrink-0 flex items-center gap-3 px-4 py-2.5 rounded-2xl bg-surface-container-lowest border border-outline-variant/30 hover:border-primary/40 shadow-xs hover:shadow-md transition-all duration-300"
                 >
-                  <img
-                    src={client.logo}
-                    alt={`Logo ${client.name}`}
-                    className="max-w-full max-h-full object-contain filter group-hover:scale-105 transition-all duration-300"
-                    loading="lazy"
-                  />
-                </div>
+                  <div
+                    style={customStyle}
+                    className={`w-14 h-14 sm:w-16 sm:h-16 rounded-full overflow-hidden flex items-center justify-center border shrink-0 transition-transform duration-300 group-hover:scale-105 ${circleBg} ${isTomaple ? "p-1.5" : "p-2"}`}
+                  >
+                    <img
+                      src={`${client.logo}?v=4`}
+                      alt={`Logo ${client.name}`}
+                      className="w-full h-full object-contain"
+                      loading="lazy"
+                    />
+                  </div>
 
-                <div>
-                  <span className="text-body-sm font-bold text-on-surface group-hover:text-primary transition-colors block line-clamp-1">
-                    {client.name}
-                  </span>
-                  <span className="text-[11px] text-on-surface-variant font-medium block">
-                    {client.category}
-                  </span>
+                  <div className="flex flex-col pr-1 text-left">
+                    <span className="text-body-sm font-bold text-on-surface whitespace-nowrap">
+                      {client.name}
+                    </span>
+                    <span className="text-[11px] text-on-surface-variant font-medium whitespace-nowrap">
+                      {client.category}
+                    </span>
+                  </div>
                 </div>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
         </div>
 
         {/* Bottom Connection to Portfolio */}

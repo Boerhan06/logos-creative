@@ -1,25 +1,31 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
 import Logo from "./Logo";
+import TeamModal from "./TeamModal";
 
 export default function About() {
+  const [isTeamModalOpen, setIsTeamModalOpen] = useState(false);
   return (
     <section
       id="about"
       className="px-margin-mobile lg:px-margin py-space-lg lg:py-space-xl max-w-[1440px] mx-auto w-full"
     >
-      <div className="relative rounded-[32px] sm:rounded-[36px] bg-primary p-space-md sm:p-space-lg lg:p-space-xl border border-white/15 text-white shadow-[0px_20px_50px_-10px_rgba(94,9,25,0.38)] overflow-hidden flex flex-col gap-space-lg lg:gap-space-xl">
-        {/* Ambient Glow matching Hero */}
-        <div
-          className="absolute inset-0 pointer-events-none opacity-50 mix-blend-screen bg-cover bg-center"
-          style={{
-            backgroundImage:
-              "radial-gradient(circle at 75% 25%, #7a1523 0%, #5e0919 55%, #3b0d13 100%)",
-          }}
-        />
-        <div className="absolute -top-24 -right-24 w-[450px] h-[450px] bg-[#8a0f23]/30 rounded-full blur-[100px] pointer-events-none" />
-        <div className="absolute -bottom-24 -left-24 w-[400px] h-[400px] bg-[#6b1723]/30 rounded-full blur-[90px] pointer-events-none" />
+      {/* Outer Card: Carries the Crimson Shadow and Rounded Radius - NO overflow:hidden */}
+      <div className="relative rounded-[32px] sm:rounded-[36px] crimson-card-shadow bg-primary">
+        {/* Inner Container: Clips Blurs and Ambient Gradients cleanly to rounded corners on iOS Safari */}
+        <div className="relative rounded-[32px] sm:rounded-[36px] ios-clip-rounded p-space-md sm:p-space-lg lg:p-space-xl border border-white/15 text-white flex flex-col gap-space-lg lg:gap-space-xl">
+          {/* Ambient Glow matching Hero */}
+          <div
+            className="absolute inset-0 pointer-events-none opacity-50 mix-blend-screen bg-cover bg-center"
+            style={{
+              backgroundImage:
+                "radial-gradient(circle at 75% 25%, #7a1523 0%, #5e0919 55%, #3b0d13 100%)",
+            }}
+          />
+          <div className="absolute -top-24 -right-24 w-[450px] h-[450px] bg-[#8a0f23]/30 rounded-full blur-[100px] pointer-events-none" />
+          <div className="absolute -bottom-24 -left-24 w-[400px] h-[400px] bg-[#6b1723]/30 rounded-full blur-[90px] pointer-events-none" />
 
         {/* Top Header */}
         <div className="reveal reveal-fade-up relative z-10 flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-white/15 pb-6">
@@ -75,25 +81,73 @@ export default function About() {
 
           {/* Team Photo & Personal Touch (Right Col) */}
           <div className="reveal reveal-slide-right delay-200 lg:col-span-6 flex flex-col items-center justify-center">
-            <div className="relative w-full max-w-[500px] lg:max-w-none rounded-[32px] overflow-hidden shadow-[0_25px_60px_-15px_rgba(0,0,0,0.5)] border border-white/25 group bg-white transition-all duration-300 hover:border-white/50 hover:shadow-[0_30px_70px_-10px_rgba(0,0,0,0.6)]">
-              {/* Image Frame */}
-              <img
-                src="/images/about-team.svg"
-                alt="Tim Logos Creative"
-                className="w-full h-auto object-contain block transition-transform duration-500 group-hover:scale-[1.02]"
-              />
+            {/* Outer shadow wrapper - separate from overflow:hidden container so shadow is visible */}
+            <div
+              className="relative w-full max-w-[500px] lg:max-w-none group"
+              style={{
+                filter: "drop-shadow(0 30px 50px rgba(0,0,0,0.55)) drop-shadow(0 8px 20px rgba(139,15,35,0.45))",
+              }}
+            >
+              {/* Inner card clips content but shadow bleeds through outer wrapper */}
+              <div className="relative rounded-[32px] overflow-hidden border border-white/20 bg-gradient-to-b from-[#5a1020] via-[#3b0a14] to-[#1e0509] transition-all duration-300 hover:border-white/40">
 
-              {/* Bottom Subtle Overlay Badge */}
-              <div className="absolute bottom-3 left-3 right-3 sm:bottom-4 sm:left-4 sm:right-4 p-2.5 sm:p-3 rounded-2xl bg-black/65 backdrop-blur-md border border-white/20 flex items-center justify-between text-white shadow-lg">
-                <div className="flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                  <span className="text-[12px] sm:text-label-sm font-bold tracking-wide">
-                    Logos Creative Team
-                  </span>
+                {/* Subtle radial warm backlight */}
+                <div
+                  className="absolute inset-0 pointer-events-none opacity-50"
+                  style={{
+                    backgroundImage:
+                      "radial-gradient(ellipse at 50% 30%, rgba(255,160,160,0.18) 0%, rgba(120,10,30,0.35) 55%, transparent 80%)",
+                  }}
+                />
+
+                {/* Team photo frame — clipped at waist with soft fade so no cut edge ever peeks below the card */}
+                <div className="relative z-10 pt-4 px-4 sm:pt-6 sm:px-6">
+                  <div
+                    className="relative w-full overflow-hidden"
+                    style={{ maxHeight: "clamp(250px, 52vw, 380px)" }}
+                  >
+                    <img
+                      src="/images/kenalan-yuk-transparent.png?v=3"
+                      alt="Tim Logos Creative"
+                      className="w-full h-auto object-cover object-top block transition-transform duration-500 group-hover:scale-[1.03]"
+                      style={{
+                        filter:
+                          "drop-shadow(0px 18px 28px rgba(0,0,0,0.65)) drop-shadow(0px 6px 12px rgba(90,8,20,0.45))",
+                      }}
+                      loading="eager"
+                      decoding="async"
+                    />
+                    {/* Soft bottom fade to card base color: eliminates any harsh cutoff line */}
+                    <div className="absolute bottom-0 inset-x-0 h-16 bg-gradient-to-t from-[#1e0509] to-transparent pointer-events-none" />
+                  </div>
                 </div>
-                <span className="text-[10px] sm:text-[11px] text-white/80 font-medium">
-                  Creative & Strategy
-                </span>
+
+                {/* Bottom Card — cleanly covers the faded waist */}
+                <div className="relative z-20 -mt-10 sm:-mt-12 mx-3 sm:mx-4 mb-3 sm:mb-4 p-3.5 rounded-2xl bg-[#110204] border border-white/25 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-white shadow-[0_10px_30px_rgba(0,0,0,0.8)]">
+                  <div className="flex items-center gap-2.5">
+                    <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse shrink-0" />
+                    <div>
+                      <span className="text-[12px] sm:text-label-sm font-bold tracking-wide block">
+                        Logos Creative Team
+                      </span>
+                      <span className="text-[10px] sm:text-[11px] text-white/75 font-medium">
+                        Teman Berpikir &amp; Tim Eksekusi
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Apple-style Action Pill Button */}
+                  <button
+                    type="button"
+                    onClick={() => setIsTeamModalOpen(true)}
+                    className="px-4 py-2 rounded-full bg-white text-primary hover:bg-[#ffdada] active:scale-95 text-xs font-bold transition-all duration-200 flex items-center justify-center gap-1.5 shadow-md cursor-pointer shrink-0"
+                  >
+                    <span>Lihat Selengkapnya</span>
+                    <span className="material-symbols-outlined text-[16px]">
+                      arrow_forward
+                    </span>
+                  </button>
+                </div>
               </div>
             </div>
           </div>
@@ -145,6 +199,13 @@ export default function About() {
           </div>
         </div>
       </div>
-    </section>
+    </div>
+
+    {/* All Team Members Apple-style Modal */}
+    <TeamModal
+      isOpen={isTeamModalOpen}
+      onClose={() => setIsTeamModalOpen(false)}
+    />
+  </section>
   );
 }

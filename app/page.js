@@ -3,7 +3,6 @@ import Hero from "./components/Hero";
 import WhatWeDo from "./components/WhatWeDo";
 import About from "./components/About";
 import OurClients from "./components/OurClients";
-import Portfolio from "./components/Portfolio";
 import VideoShowcase from "./components/VideoShowcase";
 import Results from "./components/Results";
 import ContactUs from "./components/ContactUs";
@@ -28,13 +27,10 @@ export default function Home() {
         {/* 03. OUR CLIENTS (Senang Bisa Jadi Bagian dari Cerita Kalian) */}
         <OurClients />
 
-        {/* 04. PORTFOLIO (Cukup Cerita. Sekarang Lihat Karyanya) */}
-        <Portfolio />
-
-        {/* 05. FEATURED VIDEO REELS (Dari Ide Hingga Layar) */}
+        {/* 04. PORTFOLIO VIDEO REELS (Karya Video Nyata: Dari Ide Hingga Layar) */}
         <VideoShowcase />
 
-        {/* 06. RESULTS (Angka Juga Punya Cerita) */}
+        {/* 05. RESULTS (Angka Juga Punya Cerita) */}
         <Results />
 
         {/* 06. CONTACT US (Jadi, Lagi Punya Ide Apa? + Chat with Logos Creative) */}

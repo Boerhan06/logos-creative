@@ -96,16 +96,18 @@ export default function WhatWeDo() {
           {services.map((item) => (
             <div
               key={item.number}
-              className="reveal reveal-fade-up group relative rounded-[28px] bg-primary p-6 sm:p-8 border border-white/15 hover:border-white/35 shadow-[0px_16px_40px_-10px_rgba(94,9,25,0.35)] hover:shadow-[0px_22px_50px_-8px_rgba(94,9,25,0.5)] hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between overflow-hidden"
+              className="reveal reveal-fade-up group relative rounded-[28px] bg-primary p-6 sm:p-8 border border-white/15 hover:border-white/35 shadow-[0px_16px_36px_rgba(94,9,25,0.35)] hover:shadow-[0px_22px_45px_rgba(94,9,25,0.5)] hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between [transform:translateZ(0)]"
             >
-              {/* Hero-Style Ambient Glow in card */}
-              <div
-                className="absolute inset-0 pointer-events-none opacity-45 mix-blend-screen bg-cover bg-center"
-                style={{
-                  backgroundImage:
-                    "radial-gradient(circle at 80% 20%, #7a1523 0%, #5e0919 60%, #3b0d13 100%)",
-                }}
-              />
+              {/* Hero-Style Ambient Glow in card (isolated in clipped background so outer shadow is never clipped on iOS/Safari) */}
+              <div className="absolute inset-0 rounded-[28px] ios-clip-rounded pointer-events-none">
+                <div
+                  className="absolute inset-0 opacity-45 mix-blend-screen bg-cover bg-center"
+                  style={{
+                    backgroundImage:
+                      "radial-gradient(circle at 80% 20%, #7a1523 0%, #5e0919 60%, #3b0d13 100%)",
+                  }}
+                />
+              </div>
 
               <div className="relative z-10">
                 <div className="flex items-center justify-between mb-5">

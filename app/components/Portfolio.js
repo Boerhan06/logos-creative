@@ -174,6 +174,7 @@ export default function Portfolio() {
                   alt={`Karya ${item.brand}`}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   loading="lazy"
+                  decoding="async"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
 
@@ -184,6 +185,8 @@ export default function Portfolio() {
                       src={item.logo}
                       alt={item.brand}
                       className="w-full h-full object-contain"
+                      loading="lazy"
+                      decoding="async"
                     />
                   </div>
                   <span className="text-[12px] font-bold text-on-surface">

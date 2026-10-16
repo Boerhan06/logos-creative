@@ -5,12 +5,12 @@ import { getWhatsAppUrl } from "../utils/whatsapp";
 
 const performanceHighlights = [
   {
-    metric: "956K+",
+    metric: "1M+",
     unit: "Tayangan Video",
     title: "Viral Video Kampanye",
     context: "Format Short-form Video (Reels & TikTok)",
-    brand: "Kampanye Konten F&B Terpilih",
-    period: "Q3 2024",
+    brand: "Kampanye Konten Terpilih",
+    period: "Peak Record",
     desc: "Menembus batas algoritma organik dengan formulasi hook visual 3 detik pertama yang memicu rasa penasaran audiens luas.",
     icon: "visibility",
     tag: "Peak Performance",
@@ -40,6 +40,18 @@ const performanceHighlights = [
 ];
 
 const analyticsScreenshots = [
+  {
+    src: "/images/results/analytics-stat-1m.jpg",
+    caption: "TikTok Studio Viral Breakthrough: 1M Views • 6,403 Jam Total Play Time • 1.9K New Followers",
+    highlight: "1M Views",
+    client: "Viral Campaign Record",
+  },
+  {
+    src: "/images/results/analytics-stat-222k.jpg",
+    caption: "High Impact Reach: 222.6K Views • 1,430 Jam Play Time • 1.9K New Followers",
+    highlight: "222.6K Views",
+    client: "Retail & Apparel Launch",
+  },
   {
     src: "/images/results/analytics-stat-5.jpg",
     caption: "TikTok Studio Viral Campaign: 956.2K Views • 6,078 Jam Total Play Time • 1.8K New Followers",
@@ -80,17 +92,20 @@ export default function Results() {
       id="results"
       className="px-margin-mobile lg:px-margin py-space-lg lg:py-space-xl max-w-[1440px] mx-auto w-full"
     >
-      <div className="rounded-[36px] bg-primary relative overflow-hidden p-space-md sm:p-space-lg lg:p-space-xl border border-white/15 text-white shadow-[0px_24px_50px_-10px_rgba(94,9,25,0.38)]">
-        {/* Ambient Background matching Hero */}
-        <div
-          className="absolute inset-0 pointer-events-none opacity-50 mix-blend-screen bg-cover bg-center"
-          style={{
-            backgroundImage:
-              "radial-gradient(circle at 75% 25%, #7a1523 0%, #5e0919 55%, #3b0d13 100%)",
-          }}
-        />
-        <div className="absolute -top-20 -right-20 w-[450px] h-[450px] bg-[#8a0f23]/35 rounded-full blur-[100px] pointer-events-none" />
-        <div className="absolute -bottom-20 -left-20 w-[400px] h-[400px] bg-[#6b1723]/30 rounded-full blur-[90px] pointer-events-none" />
+      {/* Outer Card: Carries the Crimson Shadow and Rounded Radius - NO overflow:hidden */}
+      <div className="relative rounded-[36px] crimson-card-shadow bg-primary">
+        {/* Inner Container: Clips Blurs and Ambient Gradients cleanly to rounded corners on iOS Safari */}
+        <div className="relative rounded-[36px] ios-clip-rounded p-space-md sm:p-space-lg lg:p-space-xl border border-white/15 text-white">
+          {/* Ambient Background matching Hero */}
+          <div
+            className="absolute inset-0 pointer-events-none opacity-50 mix-blend-screen bg-cover bg-center"
+            style={{
+              backgroundImage:
+                "radial-gradient(circle at 75% 25%, #7a1523 0%, #5e0919 55%, #3b0d13 100%)",
+            }}
+          />
+          <div className="absolute -top-20 -right-20 w-[450px] h-[450px] bg-[#8a0f23]/35 rounded-full blur-[100px] pointer-events-none" />
+          <div className="absolute -bottom-20 -left-20 w-[400px] h-[400px] bg-[#6b1723]/30 rounded-full blur-[90px] pointer-events-none" />
 
         {/* Section Header */}
         <div className="reveal reveal-fade-up relative z-10 max-w-3xl">
@@ -194,6 +209,7 @@ export default function Results() {
                     alt={shot.caption}
                     className="w-full h-full object-contain object-top group-hover:scale-102 transition-transform duration-500"
                     loading="lazy"
+                    decoding="async"
                   />
                   <div className="absolute top-2.5 left-2.5 px-2.5 py-1 rounded-full bg-black/75 backdrop-blur-md text-[11px] font-bold text-white border border-white/20">
                     {shot.highlight}
@@ -240,6 +256,7 @@ export default function Results() {
           </a>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
   );
 }

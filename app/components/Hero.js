@@ -60,52 +60,55 @@ export default function Hero() {
       className="w-full relative px-margin-mobile lg:px-margin pt-space-xs lg:pt-space-md pb-space-lg lg:pb-space-xl"
     >
       <div id="home" className="absolute -top-24 pointer-events-none" />
-      <div className="relative w-full rounded-[28px] lg:rounded-xl shadow-[0px_20px_50px_-10px_rgba(94,9,25,0.38)] overflow-hidden flex flex-col justify-between min-h-[600px] sm:min-h-[540px] lg:min-h-[600px] xl:min-h-[620px] p-space-md lg:p-space-xl bg-primary max-w-[1440px] mx-auto">
-        {/* Ambient Video Background */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            preload="auto"
-            className="w-full h-full object-cover filter brightness-[1.50] contrast-[1.05] saturate-[0.7]"
-            style={{ objectPosition: 'center 30%' }}
-          >
-            <source src="/Video/hero-bg.mp4" type="video/mp4" />
-            <source src="/Video/1015%30(1).mp4" type="video/mp4" />
-          </video>
-        </div>
-
-        {/* Ambient Color Gradient & Readability Scrims (Responsive for Mobile & Desktop) */}
-        <div className="absolute inset-0 pointer-events-none z-[1] bg-gradient-to-t from-[#1a0a0e]/90 via-[#1f0c10]/50 to-[#1a0a0e]/60 lg:bg-gradient-to-r lg:from-[#1a0a0e]/92 lg:via-[#2a0f14]/65 lg:to-transparent" />
-        <div className="absolute inset-0 pointer-events-none z-[1] bg-[#2a0f14]/18 mix-blend-multiply" />
-
-        {/* SVG Wave Overlay */}
-        <svg
-          className="absolute top-0 right-0 w-[65%] h-full pointer-events-none opacity-20 z-[1]"
-          fill="none"
-          preserveAspectRatio="none"
-          viewBox="0 0 800 600"
-        >
-          <path
-            d="M100 0C300 120 450 80 600 240C750 400 850 150 900 0V600H0C80 420 180 200 100 0Z"
-            fill="url(#hero-gradient)"
-          />
-          <defs>
-            <linearGradient
-              id="hero-gradient"
-              x1="0%"
-              x2="100%"
-              y1="0%"
-              y2="100%"
+      {/* Outer Card: Carries the Crimson Shadow and Rounded Radius - NO overflow:hidden so shadow is never clipped */}
+      <div className="relative w-full rounded-[28px] lg:rounded-xl crimson-card-shadow bg-primary max-w-[1440px] mx-auto">
+        {/* Inner Container: Clips Video, Gradients, and Blurs cleanly to rounded corners on iOS Safari */}
+        <div className="relative w-full rounded-[28px] lg:rounded-xl ios-clip-rounded flex flex-col justify-between min-h-[600px] sm:min-h-[540px] lg:min-h-[600px] xl:min-h-[620px] p-space-md lg:p-space-xl">
+          {/* Ambient Video Background */}
+          <div className="absolute inset-0 pointer-events-none z-0 ios-clip-rounded">
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              preload="auto"
+              className="w-full h-full object-cover rounded-[28px] lg:rounded-xl filter brightness-[1.50] contrast-[1.05] saturate-[0.7]"
+              style={{ objectPosition: 'center 30%' }}
             >
-              <stop offset="0%" stopColor="#3d1018" stopOpacity="0.5" />
-              <stop offset="50%" stopColor="#2a0f14" stopOpacity="0.65" />
-              <stop offset="100%" stopColor="#1a0a0e" stopOpacity="0.8" />
-            </linearGradient>
-          </defs>
-        </svg>
+              <source src="/Video/hero-bg.mp4" type="video/mp4" />
+              <source src="/Video/1015%30(1).mp4" type="video/mp4" />
+            </video>
+          </div>
+
+          {/* Ambient Color Gradient & Readability Scrims (Responsive for Mobile & Desktop) */}
+          <div className="absolute inset-0 pointer-events-none z-[1] bg-gradient-to-t from-[#1a0a0e]/90 via-[#1f0c10]/50 to-[#1a0a0e]/60 lg:bg-gradient-to-r lg:from-[#1a0a0e]/92 lg:via-[#2a0f14]/65 lg:to-transparent" />
+          <div className="absolute inset-0 pointer-events-none z-[1] bg-[#2a0f14]/18 mix-blend-multiply" />
+
+          {/* SVG Wave Overlay */}
+          <svg
+            className="absolute top-0 right-0 w-[65%] h-full pointer-events-none opacity-20 z-[1]"
+            fill="none"
+            preserveAspectRatio="none"
+            viewBox="0 0 800 600"
+          >
+            <path
+              d="M100 0C300 120 450 80 600 240C750 400 850 150 900 0V600H0C80 420 180 200 100 0Z"
+              fill="url(#hero-gradient)"
+            />
+            <defs>
+              <linearGradient
+                id="hero-gradient"
+                x1="0%"
+                x2="100%"
+                y1="0%"
+                y2="100%"
+              >
+                <stop offset="0%" stopColor="#3d1018" stopOpacity="0.5" />
+                <stop offset="50%" stopColor="#2a0f14" stopOpacity="0.65" />
+                <stop offset="100%" stopColor="#1a0a0e" stopOpacity="0.8" />
+              </linearGradient>
+            </defs>
+          </svg>
 
         {/* Top Status Indicator */}
         <div className="relative z-10 flex items-center justify-end w-full">
@@ -255,6 +258,7 @@ export default function Hero() {
           </a>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
   );
 }

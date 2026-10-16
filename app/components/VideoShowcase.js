@@ -285,30 +285,31 @@ export default function VideoShowcase() {
 
   return (
     <section
-      id="videos"
+      id="portfolio"
       className="px-margin-mobile lg:px-margin py-space-lg lg:py-space-xl max-w-[1440px] mx-auto w-full relative"
     >
+      <div id="videos" className="absolute -top-24 pointer-events-none" />
       <div className="flex flex-col gap-space-md lg:gap-space-lg">
         {/* Apple-Style Section Header */}
         <div className="reveal reveal-fade-up flex flex-col md:flex-row md:items-end justify-between gap-6">
           <div className="max-w-2xl">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 mb-3">
               <span className="material-symbols-outlined text-[16px] text-primary">
-                videocam
+                play_circle
               </span>
               <span className="text-label-sm font-bold text-primary tracking-widest uppercase">
-                FEATURED VIDEO REELS
+                PORTOFOLIO VIDEO REELS
               </span>
             </div>
 
             <h2 className="text-headline-md sm:text-headline-lg lg:text-display-sm text-on-surface font-extrabold tracking-tight leading-tight">
-              Dari Ide Hingga Layar. Visual yang Menggerakkan Audiens.
+              Portofolio Video: Dari Ide Hingga Layar.
             </h2>
 
             <p className="mt-4 text-body-md sm:text-body-lg text-on-surface-variant leading-relaxed">
-              Format short-form video (TikTok & Instagram Reels) adalah medium
+              Format short-form video (TikTok, Instagram Reels & YouTube Shorts) adalah medium
               paling efektif untuk menghentikan jempol audiens di 3 detik pertama.
-              Berikut beberapa karya video nyata yang kami produksi untuk klien kami.
+              Berikut karya video nyata yang kami produksi untuk klien kami.
             </p>
           </div>
 
@@ -419,6 +420,8 @@ export default function VideoShowcase() {
                             src={video.logo}
                             alt={video.client}
                             className="w-full h-full object-contain"
+                            loading="lazy"
+                            decoding="async"
                           />
                         </div>
                         <span className="text-[11px] font-bold truncate">
@@ -536,6 +539,75 @@ export default function VideoShowcase() {
             </span>
           </a>
         </div>
+
+        {/* Apple-grade Social Calling Out Hub */}
+        <div className="reveal reveal-fade-up rounded-[28px] bg-gradient-to-br from-[#1c050a] via-[#2d0912] to-[#120205] border border-[#ffb3b5]/20 p-6 sm:p-8 text-white flex flex-col lg:flex-row items-center justify-between gap-6 shadow-[0_20px_50px_rgba(94,9,25,0.35)]">
+          <div className="flex flex-col gap-1.5 text-center lg:text-left max-w-xl">
+            <div className="inline-flex items-center justify-center lg:justify-start gap-2">
+              <span className="w-2 h-2 rounded-full bg-[#ffb3b5] animate-pulse" />
+              <span className="text-[11px] sm:text-xs font-bold uppercase tracking-widest text-[#ffdada]">
+                OFFICIAL SOCIAL MEDIA
+              </span>
+            </div>
+            <h3 className="text-xl sm:text-2xl font-black tracking-tight text-white">
+              Eksplorasi Video &amp; Behind The Scenes Kami
+            </h3>
+            <p className="text-xs sm:text-sm text-white/70 leading-relaxed">
+              Ikuti akun resmi kami untuk melihat update video terbaru, inspirasi storytelling, dan keseharian kreatif tim Logos Creative.
+            </p>
+          </div>
+
+          {/* Social Channels Pills */}
+          <div className="flex flex-wrap items-center justify-center gap-3 shrink-0">
+            {/* Instagram */}
+            <a
+              href="https://www.instagram.com/logoscreative.id?exln=MWl0c3JxN2tkcXhxeg=="
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex items-center gap-2.5 px-5 py-3 rounded-full bg-white/10 hover:bg-gradient-to-r hover:from-[#f09433] hover:via-[#dc2743] hover:to-[#bc1888] text-white border border-white/15 hover:border-transparent transition-all duration-300 shadow-sm hover:shadow-[0_8px_25px_rgba(220,39,67,0.4)] hover:-translate-y-0.5 active:translate-y-0"
+            >
+              <svg className="w-5 h-5 fill-current transition-transform group-hover:scale-110" viewBox="0 0 24 24">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+              </svg>
+              <div className="flex flex-col text-left">
+                <span className="text-[10px] text-white/70 group-hover:text-white/95 font-medium leading-none">Instagram</span>
+                <span className="text-xs font-bold leading-tight">@logoscreative.id</span>
+              </div>
+            </a>
+
+            {/* TikTok */}
+            <a
+              href="https://www.tiktok.com/@logos.creative?_r=1&_t=ZS-9AbjG8m2UD2"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex items-center gap-2.5 px-5 py-3 rounded-full bg-white/10 hover:bg-black text-white border border-white/15 hover:border-[#25F4EE]/50 transition-all duration-300 shadow-sm hover:shadow-[0_8px_25px_rgba(37,244,238,0.35)] hover:-translate-y-0.5 active:translate-y-0"
+            >
+              <svg className="w-5 h-5 fill-current text-white group-hover:text-[#25F4EE] transition-colors" viewBox="0 0 24 24">
+                <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64c.298-.002.595.042.88.13V9.4a6.33 6.33 0 0 0-1-.08A6.34 6.34 0 0 0 3 15.66a6.34 6.34 0 0 0 10.83 4.46 6.3 6.3 0 0 0 1.83-4.46V8.92a8.28 8.28 0 0 0 4.93 1.6v-3.5a4.83 4.83 0 0 1-1-.33z"/>
+              </svg>
+              <div className="flex flex-col text-left">
+                <span className="text-[10px] text-white/70 group-hover:text-white/95 font-medium leading-none">TikTok</span>
+                <span className="text-xs font-bold leading-tight">@logos.creative</span>
+              </div>
+            </a>
+
+            {/* YouTube */}
+            <a
+              href="https://youtube.com/@logoscreative23?si=0QU3FIP8Fqvw_r3V"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex items-center gap-2.5 px-5 py-3 rounded-full bg-white/10 hover:bg-[#FF0000] text-white border border-white/15 hover:border-transparent transition-all duration-300 shadow-sm hover:shadow-[0_8px_25px_rgba(255,0,0,0.4)] hover:-translate-y-0.5 active:translate-y-0"
+            >
+              <svg className="w-5 h-5 fill-current transition-transform group-hover:scale-110" viewBox="0 0 24 24">
+                <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+              </svg>
+              <div className="flex flex-col text-left">
+                <span className="text-[10px] text-white/70 group-hover:text-white/95 font-medium leading-none">YouTube</span>
+                <span className="text-xs font-bold leading-tight">@logoscreative23</span>
+              </div>
+            </a>
+          </div>
+        </div>
       </div>
 
       {/* Apple Theater Fullscreen Lightbox Modal */}
@@ -634,6 +706,8 @@ export default function VideoShowcase() {
                         src={selectedVideo.logo}
                         alt={selectedVideo.client}
                         className="w-full h-full object-contain"
+                        loading="lazy"
+                        decoding="async"
                       />
                     </div>
                     <div>
