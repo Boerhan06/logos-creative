@@ -25,7 +25,7 @@ export default function Footer() {
           {/* Brand Info (Left Col) */}
           <div className="lg:col-span-6 flex flex-col gap-3">
             <Link href="/" className="inline-flex items-center w-fit">
-              <Logo variant="badge" size={42} showText={true} />
+              <Logo variant="badge" size={46} showText={true} />
             </Link>
 
             <p className="text-body-md text-on-surface-variant max-w-md leading-relaxed mt-1">

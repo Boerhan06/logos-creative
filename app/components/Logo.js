@@ -1,10 +1,11 @@
 export default function Logo({
   variant = "badge", // "badge" (circular badge) | "mark" (pure white icon) | "glass" (frosted container with white icon)
-  size = 40,
+  size = 46,
   className = "",
   showText = false,
   textColor = "text-on-surface",
   subtextColor = "text-primary-container",
+  textSize = "text-[21px] lg:text-[23px]",
 }) {
   if (variant === "mark") {
     return (
@@ -16,9 +17,9 @@ export default function Logo({
           style={{ width: size, height: size }}
         />
         {showText && (
-          <span className={`ml-2 text-title-md tracking-tight font-bold ${textColor}`}>
-            Logos
-            <span className={`font-medium ml-1 ${subtextColor}`}>Creative</span>
+          <span className={`ml-2 tracking-tight font-bold leading-none inline-flex items-center select-none ${textSize} ${textColor}`}>
+            <span>Logos</span>
+            <span className={`font-semibold ml-1.5 ${subtextColor}`}>Creative</span>
           </span>
         )}
       </div>
@@ -42,7 +43,7 @@ export default function Logo({
 
   // Default: circular badge
   return (
-    <div className={`inline-flex items-center gap-space-sm group ${className}`}>
+    <div className={`inline-flex items-center gap-2.5 lg:gap-3 group ${className}`}>
       <div
         className="rounded-full flex items-center justify-center shadow-sm shrink-0 overflow-hidden transition-transform duration-300 group-hover:scale-105"
         style={{ width: size, height: size }}
@@ -54,9 +55,9 @@ export default function Logo({
         />
       </div>
       {showText && (
-        <span className={`text-title-md tracking-tight font-bold ${textColor}`}>
-          Logos
-          <span className={`font-medium ml-1 ${subtextColor}`}>Creative</span>
+        <span className={`tracking-tight font-bold leading-none inline-flex items-center select-none ${textSize} ${textColor}`}>
+          <span>Logos</span>
+          <span className={`font-semibold ml-1.5 ${subtextColor}`}>Creative</span>
         </span>
       )}
     </div>

@@ -52,7 +52,7 @@ export default function Header() {
             }}
             className="flex items-center group cursor-pointer"
           >
-            <Logo variant="badge" size={40} showText={true} />
+            <Logo variant="badge" size={46} showText={true} />
           </Link>
 
           {/* Desktop Nav with Loading Line Hover Effect */}
